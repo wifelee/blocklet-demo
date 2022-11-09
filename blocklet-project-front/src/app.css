@@ -1,0 +1,128 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  text-align: center;
+}
+
+.app-logo {
+  height: 10vmin;
+  pointer-events: none;
+  margin-right: 20px;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+pre {
+  font-size: 0.75em;
+}
+
+.app-link {
+  color: #4f6af5;
+}
+
+.haolHO {
+  color: rgb(0, 0, 0);
+  width: 52vw;
+  max-width: 750px;
+  font-size: 1rem;
+  border-radius: 20px;
+  height: 35px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 0px 5px 0px 32px;
+}
+
+.list {
+  max-width: 600px;
+  width: 100%;
+  margin: 20px auto;
+  font-size: 12px;
+}
+.detail-wrapper {
+  padding: 12px;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+}
+.detail-cell {
+  display: flex;
+  justify-content: space-between;
+}
+.item {
+  color: rgb(153, 153, 153);
+  box-sizing: border-box;
+  padding: 12px;
+  text-decoration: none;
+  border: 1px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.01s ease-in 0s;
+  overflow: hidden;
+  width: 100%;
+  min-height: 56px;
+  margin: 0px 0px 12px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.item-left  {
+  text-align: left;
+  flex: 1 1 0;
+}
+.item-right  {
+  text-align: right;
+  flex: 1 1 0;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.page-click {
+  cursor: pointer;
+}
+.hover-line:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.hover-line::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 2px;
+  background-color: currentcolor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.25s ease-in 0s;
+}
+
+.no-data {
+  font-size: 1.75rem;
+  word-break: normal;
+  font-weight: 600;
+}
+
+.tips-mini {
+  font-size: 1.125rem;
+  font-weight: 400;
+  word-break: break-all;
+  color: rgb(153, 153, 153);
+}
