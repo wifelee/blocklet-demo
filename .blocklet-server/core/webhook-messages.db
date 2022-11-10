@@ -1,2 +1,0 @@
-{"_id":"06a99e60-0707-48ad-8f39-d5cc49543363","job":{"title":"Disk Usage Alert","description":"More than 80.96% space has been used for disk /dev/disk1s1s1, the blocklet server may not function properly.","status":"warning","action":"","entityType":"node"},"retryCount":1,"cancelled":false,"createdAt":1667959501059,"updatedAt":1667959501059}
-{"$$deleted":true,"_id":"06a99e60-0707-48ad-8f39-d5cc49543363"}

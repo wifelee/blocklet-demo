@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import moment from 'moment';
 import logo from '../logo.svg';
 import BTC from '../bitcoin.svg';
 import axios from '../libs/api';
-import moment from 'moment';
+
 function Home() {
   const [loading, setLoading] = useState(false);
   const [hash, setHash] = useState('');
@@ -21,8 +22,8 @@ function Home() {
       setLoading(false);
       if (res.status === 200) {
         setHashObj(res.data);
-        const tx_list = res.data['tx'];
-        let arr = [];
+        const tx_list = res.data.tx;
+        const arr = [];
         for (let i = 0; i < tx_list.length; i += 10) {
           arr.push(tx_list.slice(i, i + 10));
         }
@@ -42,7 +43,7 @@ function Home() {
   const debounce = (func, wait) => {
     let timeOut = null;
     return function (args) {
-      timeOut && clearTimeout(timeOut); //一定要清除定时器
+      timeOut && clearTimeout(timeOut); // 一定要清除定时器
       timeOut = setTimeout(() => {
         func(args);
       }, wait);
@@ -78,7 +79,8 @@ function Home() {
                 loadData(hash);
               }
             }
-          }}></input>
+          }}
+        />
       </header>
       {loading ? (
         <div className="no-data">Please wait for while we process your request...</div>
@@ -87,25 +89,30 @@ function Home() {
           {list.length > 0 ? (
             <div className="item-wrapper">
               <div className="detail-wrapper">
-              <div style={{margin:'12px 0',display:'flex',justifyContent:'center',alignItem:'center'}}><img src={BTC} style={{marginRight:'12px'}} /> BTC</div>
+                <div style={{ margin: '12px 0', display: 'flex', justifyContent: 'center', alignItem: 'center' }}>
+                  <img src={BTC} style={{ marginRight: '12px' }} /> BTC
+                </div>
                 <div className="detail-cell">
                   <div>
                     <span>Hash </span>{' '}
-                    <span> {`${hashObj.hash.slice(0, 4)}...${hashObj.hash.slice(hashObj.hash.length - 4, hashObj.hash.length)}`}</span>
+                    <span>
+                      {' '}
+                      {`${hashObj.hash.slice(0, 4)}...${hashObj.hash.slice(
+                        hashObj.hash.length - 4,
+                        hashObj.hash.length
+                      )}`}
+                    </span>
                   </div>
                   <div>
-                    <span>Size </span>{' '}
-                    <span> {hashObj.size}</span>
+                    <span>Size </span> <span> {hashObj.size}</span>
                   </div>
                 </div>
                 <div className="detail-cell">
                   <div>
-                    <span>Height </span>{' '}
-                    <span> {hashObj.height}</span>
+                    <span>Height </span> <span> {hashObj.height}</span>
                   </div>
                   <div>
-                    <span>Weight </span>{' '}
-                    <span> {hashObj.weight}</span>
+                    <span>Weight </span> <span> {hashObj.weight}</span>
                   </div>
                 </div>
               </div>
@@ -117,7 +124,7 @@ function Home() {
                         <span style={{ color: 'rgb(0, 0, 0)' }}>TX {i}</span>
                         <span> • </span>
                         <span>Hash </span>
-                        <span style={{ color: 'rgb(255, 161, 51)', position: 'relative' }} className={'hover-line'}>
+                        <span style={{ color: 'rgb(255, 161, 51)', position: 'relative' }} className="hover-line">
                           {`${a.hash.slice(0, 4)}-${a.hash.slice(a.hash.length - 4, a.hash.length)}`}
                         </span>
                       </div>
@@ -129,7 +136,7 @@ function Home() {
                           {onCountOutput(a.out)} BTC{' '}
                         </span>
                         {/* <span>146,286</span> */}
-                        <span></span>
+                        <span />
                       </div>
                       <div className="fee">
                         <span style={{ color: 'rgb(244, 91, 105)' }}>Fee</span>
